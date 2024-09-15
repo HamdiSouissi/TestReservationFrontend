@@ -1,0 +1,7 @@
+<!-- src/app/features/reservations/edit-reservation/edit-reservation.component.html -->
+<h2>Modifier Réservation</h2>
+<app-reservation-form
+  *ngIf="reservationData"
+  [initialData]="reservationData"
+  (formSubmit)="onSubmit($event)"
+></app-reservation-form>

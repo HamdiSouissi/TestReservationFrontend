@@ -5,4 +5,5 @@ export interface Reservation {
     id: number;
     client : Client;
     trajets: Trajet[];
+    reservationPrice: number;
 }

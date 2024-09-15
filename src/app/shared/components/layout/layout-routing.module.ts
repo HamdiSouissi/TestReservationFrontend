@@ -12,7 +12,10 @@ const routes: Routes = [{
       path: 'home', loadChildren: () => import('src/app/features/home/home.module').then(m => m.HomeModule),
     },
     {
-      path: 'reservations', loadChildren: () => import('src/app/features/reservations/reservations.module').then(m => m.ReservationsModule),
+      path: 'reservations', loadChildren: () => import('src/app/features/reservations/reservations-list/reservations.module').then(m => m.ReservationsModule),
+    },
+    {
+      path: 'add-reservations', loadChildren: () => import('src/app/features/reservations/add-reservations/add-reservations.module').then(m => m.AddReservationsModule),
     }
   ]
 }];

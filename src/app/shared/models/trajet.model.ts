@@ -3,7 +3,6 @@ import { Bus } from "./bus.model";
 export interface Trajet {
     id: number;
     nbrPlaces: number;
-    dateDepart: Date;
+    departureTime: Date;
     bus: Bus;
-    price:number
 }

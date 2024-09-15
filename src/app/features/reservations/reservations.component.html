@@ -1,9 +1,7 @@
 <h1>Mes réservations</h1>
 <div class="d-flex justify-content-end">
     <div class="btn-group" role="group">
-        <a id="addButton" type="button" aria-hidden="true" class="btn btn-outline-primary btn-sm">Ajouter</a>
-        <a id="editButton" type="button" class="btn btn-outline-success btn-sm">Modifier</a>
-        <button id="deleteButton" type="button" class="btn btn-outline-danger btn-sm" (click)="confirmDelete()">Supprimer</button>
+        <a id="addButton" type="button" routerLink="/reservations/add" aria-hidden="true" class="btn btn-outline-primary btn-sm">Ajouter</a>
     </div>
 </div>
 <div class="table-responsive">
@@ -15,15 +13,20 @@
                 <th scope="col">N° Bus</th>
                 <th scope="col">Nb de billets</th>
                 <th scope="col">Prix</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let reservation of reservations">
-                <td>21/05/2024</td>
-                <td>10h30</td>
+                <td>{{ reservation.trajets[0].dateDepart | date: 'dd/MM/yyyy' }}</td>
+                <td>{{ formatTimeFromDate(reservation.trajets[0].dateDepart) }}</td>
                 <td>{{reservation.trajets[0].bus.numero}}</td>
                 <td>{{reservation.trajets[0].nbrPlaces}}</td>
-                <td>{{reservation.trajets[0].price}}</td>
+                <td>{{ reservation.trajets[0].price | currency:'EUR' }}</td>
+                <td>
+                    <a id="editButton" [routerLink]="['/reservations/edit', reservation.id]" class="btn btn-outline-success btn-sm">Modifier</a>
+                    <button id="deleteButton" type="button" class="btn btn-outline-danger btn-sm" (click)="confirmDelete(reservation.id)">Supprimer</button>
+                </td>
             </tr>
         </tbody>
     </table>

@@ -1,4 +1,6 @@
 export interface Bus {
     id: number;
-    numero: number;
+    busNumber: number;
+    capacity: number;
+    unitTrajetPrice: number;
 }
